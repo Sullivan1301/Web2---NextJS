@@ -52,7 +52,8 @@ export default function Todos() {
  
 
   return (
-    <div>
+    <div className="glass-container">
+      <div className="app container">
       <h1>Todo List</h1>
       <div>
         <input type="text" value={newTodo} onChange={handleInputChange} onKeyPress = {handleKeyPress} />
@@ -87,6 +88,7 @@ export default function Todos() {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }
