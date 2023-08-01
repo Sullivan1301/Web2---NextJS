@@ -10,6 +10,12 @@ export default function Todos() {
     setNewTodo(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Entrer"){
+      addTodo()
+    }
+  };
+
   const addTodo = () => {
     if (newTodo.trim() !== "") {
       setTodoList([...todoList, newTodo]);
@@ -43,17 +49,19 @@ export default function Todos() {
     setEditingIndex(-1);
   };
 
+ 
+
   return (
     <div>
       <h1>Todo List</h1>
       <div>
-        <input type="text" value={newTodo} onChange={handleInputChange} />
+        <input type="text" value={newTodo} onChange={handleInputChange} onKeyPress = {handleKeyPress} />
         {editingIndex === -1 ? (
-          <button onClick={addTodo}>Add</button>
+          <button className="add-button" onClick={addTodo}>Add</button>
         ) : (
           <>
-            <button onClick={updateTodo}>Update</button>
-            <button onClick={cancelEditing}>Cancel</button>
+            <button className="save-button" onClick={updateTodo}>Update</button>
+            <button className="cancel-button" onClick={cancelEditing}>Cancel</button>
           </>
         )}
       </div>
@@ -61,19 +69,19 @@ export default function Todos() {
         {todoList.map((todo, index) => (
           <li key={index}>
             {index === editingIndex ? (
-              <input type="text" value={newTodo} onChange={handleInputChange} />
+              <input className="editing-button" type="text" value={newTodo} onChange={handleInputChange} onKeyPress={handleKeyPress}/>
             ) : (
               todo
             )}
             {index === editingIndex ? (
               <>
-                <button onClick={() => updateTodo(index)}>Save</button>
-                <button onClick={cancelEditing}>Cancel</button>
+                <button className="save-button" onClick={() => updateTodo(index)}>Save</button>
+                <button className="cancel-button" onClick={cancelEditing}>Cancel</button>
               </>
             ) : (
               <>
-                <button onClick={() => startEditing(index)}>Edit</button>
-                <button onClick={() => removeTodo(index)}>Remove</button>
+                <button className="edit-button" onClick={() => startEditing(index)}>Edit</button>
+                <button className="remove-button" onClick={() => removeTodo(index)}>Remove</button>
               </>
             )}
           </li>
