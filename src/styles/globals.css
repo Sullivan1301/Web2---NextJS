@@ -1,3 +1,10 @@
+/* CSS Variables */
+:root {
+  --background-color: #060047;
+  --main-color: #B3005E;
+  --secondary-color: #E90064;
+  --accent-color: #FF5F9E;
+}
 
 /* Reset some default styles */
 * {
@@ -10,31 +17,35 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  padding: 20px;
+  padding: 10%;
+  background: var(--background-color) url('https://img.freepik.com/photos-premium/lumiere-abstraite-ultraviolette-arriere-plan-couleurs-neon-ai_564714-1999.jpg?size=626&ext=jpg&uid=R111587717&semt=ais') no-repeat center/cover;
 }
+
 /* Container for the glass effect */
 .glass-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.2); /* Couleur de l'arrière-plan transparent */
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
 }
 
 /* Container for the todo app */
 .app-container {
-  max-width: 600px;
-  background-color: rgba(255, 255, 255, 0.3); /* Couleur de fond semi-transparente */
+  max-width: 75%;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 50%;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #f9f9f9; /* Use white color for better contrast */
 }
 
 /* Todo input and buttons styles */
@@ -58,36 +69,37 @@ button {
 }
 
 button.add-button {
-  background-color: #4caf50;
+  background-color: var(--accent-color);
   color: #ffffff;
 }
 
 button.add-button:hover {
-  background-color: #29692c;
+  background-color: #FF8369;
 }
 
 button.cancel-button {
-  background-color: #f44336;
+  background-color: var(--main-color);
   color: #ffffff;
 }
 
 button.cancel-button:hover {
-  background-color: #d32f2f;
+  background-color: #113c59;
 }
 
 button.save-button {
-  background-color: #2196f3;
+  background-color: var(--secondary-color);
   color: #ffffff;
 }
 
 button.save-button:hover {
-  background-color: #1976d2;
+  background-color: #EE6F57;
 }
 
 /* Todo list styles */
 ul {
   list-style-type: none;
   padding: 0;
+  color: #F6F5F5;
 }
 
 li {
@@ -117,16 +129,16 @@ li button {
 }
 
 button.edit-button {
-  background-color: #ffc107;
+  background-color: var(--secondary-color);
   color: #ffffff;
 }
 
 button.edit-button:hover {
-  background-color: #ffa000;
+  background-color: #1976d2;
 }
 
 button.remove-button {
-  background-color: #f44336;
+  background-color: var(--accent-color);
   color: #ffffff;
 }
 
