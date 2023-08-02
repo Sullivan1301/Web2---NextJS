@@ -11,7 +11,7 @@ export default function Todos() {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === "Entrer"){
+    if (event.key === "Enter"){
       addTodo()
     }
   };
